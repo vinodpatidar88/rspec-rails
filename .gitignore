@@ -34,6 +34,5 @@
 /config/*.key
 /config/credentials.yml.enc
 /config/master.key
-bin/
 vendor/
 
