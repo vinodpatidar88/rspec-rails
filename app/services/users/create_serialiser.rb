@@ -11,7 +11,7 @@ module Users
       private
 
       def create
-         users = User.create(@params)
+        User.create!(@params)
       end
     end
 end
