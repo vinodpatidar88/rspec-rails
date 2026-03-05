@@ -15,6 +15,11 @@ Rails.application.routes.draw do
     namespace :v1 do
       get  'users', to: 'users#index'
       post 'users', to: 'users#create'
+      get 'users/:id', to: 'users#show'
+      get 'users/:id/edit', to: 'users#edit'
+      put 'users/:id', to: 'users#update'
+      patch 'users/:id',to: 'users#update_status'
+      resources :user_profiles, only: [:index, :show, :create, :edit, :update, :destroy]
     end
   end
 end
