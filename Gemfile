@@ -51,6 +51,8 @@ group :development, :test do
   gem 'faker' #get Dumy Data For Users
   gem 'shoulda-matchers' #validation testing Simplify
   gem 'pry' # Debugging Tools
+  gem 'simplecov'
+  gem 'simplecov-console'
   # See https://guides.rubyonrails.org/debugging_rail s_applications.html#debugging-with-the-debug-gem
   gem "debug", platforms: %i[ mri windows ], require: "debug/prelude"
 

@@ -5,14 +5,10 @@ FactoryBot.define do
     mobile_number { Faker::Alphanumeric.alpha(number: 10) }
     age { rand(10..60) }
     password { Faker::Internet.password }
-    status { 'inactive' }
-  end
+    status { 'active' }
 
-  factory :user_profile do
-    user_name {Faker::Name.userName}
-    follower_count {rand(1000..5000)}
-    following_count {rand(2000..3000)}
-    url {Faker::Internet.url}
-    website_url {'inactive'}
+    trait :mobile_blank do
+        mobile_number { nil }
+    end
   end
 end

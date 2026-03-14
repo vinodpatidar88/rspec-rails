@@ -3,14 +3,12 @@ class User < ApplicationRecord
     has_one_attached :image
     has_one_attached :video
     has_many :user_profiles
-    validates :email, presence: true,
-                  uniqueness: true,
-                  format: { with: URI::MailTo::EMAIL_REGEXP }, if: -> { mobile_number.blank? }
+    validate :user_mobile_number
+    validates :email, presence: true, uniqueness: true, if: -> { mobile_number.blank? }
     validates :age, numericality: true
     # validates :mobile_number, format: {with: /\A\d{10}\z/, message: "must be 10 digits"}
     enum :status, {active: 0, inactive: 1, pending: 2}
     validates :password, length: {minimum:3, maximum:50}, if: ->{ password_confirmation.present? || password.present? }
-    scope :status, ->(status) {where(status: status)}
 
     def self.my_lambda
       ->(x) { 
