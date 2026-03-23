@@ -7,6 +7,28 @@
           null
         ]
       },
+      "/Users/vinodpatidar/rspec/app/jobs/send_email_job.rb": {
+        "lines": [
+          1,
+          1,
+          null,
+          1,
+          0,
+          null,
+          null
+        ]
+      },
+      "/Users/vinodpatidar/rspec/app/jobs/application_job.rb": {
+        "lines": [
+          1,
+          null,
+          null,
+          null,
+          null,
+          null,
+          null
+        ]
+      },
       "/Users/vinodpatidar/rspec/app/models/user_profile.rb": {
         "lines": [
           1,
@@ -29,11 +51,11 @@
           1,
           1,
           1,
-          61,
+          49,
           1,
           null,
           1,
-          31,
+          25,
           null,
           1,
           0,
@@ -42,7 +64,7 @@
           null,
           null,
           1,
-          30,
+          24,
           3,
           null,
           null,
@@ -81,32 +103,23 @@
           null,
           1,
           null,
-          1,
-          1,
           0,
-          null,
-          1,
-          null,
-          1,
+          0,
+          0,
           null,
           0,
           null,
-          null,
-          null,
-          1,
-          null,
-          1,
-          1,
           0,
-          null,
-          1,
-          1,
           null,
           0,
           null,
           null,
           null,
           1,
+          null,
+          0,
+          0,
+          0,
           null,
           0,
           0,
@@ -117,7 +130,16 @@
           null,
           1,
           null,
-          3,
+          0,
+          0,
+          null,
+          0,
+          null,
+          null,
+          null,
+          1,
+          null,
+          1,
           null,
           1,
           null,
@@ -136,11 +158,11 @@
           null,
           null,
           1,
-          1,
+          0,
           null,
           null,
           1,
-          1,
+          0,
           null
         ]
       },
@@ -197,18 +219,6 @@
         ],
         "branches": {}
       },
-      "/Users/vinodpatidar/rspec/app/jobs/application_job.rb": {
-        "lines": [
-          0,
-          null,
-          null,
-          null,
-          null,
-          null,
-          0
-        ],
-        "branches": {}
-      },
       "/Users/vinodpatidar/rspec/app/mailers/application_mailer.rb": {
         "lines": [
           0,
@@ -219,6 +229,6 @@
         "branches": {}
       }
     },
-    "timestamp": 1773460527
+    "timestamp": 1774245266
   }
 }

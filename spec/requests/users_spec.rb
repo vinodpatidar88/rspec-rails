@@ -70,7 +70,10 @@ RSpec.describe Users, type: :request do
        expect(response).to be_successful
      end
 
+    let(:user) { instance_double("User", full_name: "vinod") }
+
      it "user status update" do
+       puts user.name
        patch "/api/v1/users/#{user.id}", params: {status: 'inactive'}
        expect(response).to have_http_status(:no_content)
        expect(response).to be_no_content
