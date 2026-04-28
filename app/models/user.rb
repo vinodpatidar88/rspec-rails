@@ -7,13 +7,13 @@ class User < ApplicationRecord
     validates :email, presence: true, uniqueness: true, if: -> { mobile_number.blank? }
     validates :age, numericality: true
     # validates :mobile_number, format: {with: /\A\d{10}\z/, message: "must be 10 digits"}
-    enum :status, {active: 0, inactive: 1, pending: 2}
-    validates :password, length: {minimum:3, maximum:50}, if: ->{ password_confirmation.present? || password.present? }
+    enum :status, { active: 0, inactive: 1, pending: 2 }
+    validates :password, length: { minimum: 3, maximum: 50 }, if: -> { password_confirmation.present? || password.present? }
 
     def self.my_lambda
-      ->(x) { 
-        {message: 'return successfully', result: x * 2}
-     } 
+      ->(x) {
+        { message: "return successfully", result: x * 2 }
+     }
     end
 
     def user_mobile_number

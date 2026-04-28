@@ -10,7 +10,7 @@ class Api::V1::UsersController < ApplicationController
     end
      render json: users_with_images, status: :ok
     rescue StandardError => error
-       render json: {message: error.message}, status: :internal_server_error
+       render json: { message: error.message }, status: :internal_server_error
     end
    end
 
@@ -19,7 +19,7 @@ class Api::V1::UsersController < ApplicationController
       data = ::Users::CreateSerialiser.new(set_user_params(params)).call
       render json: data, status: :created
     rescue StandardError => e
-      render json: { message: e.message}, status: :unprocessable_entity
+      render json: { message: e.message }, status: :unprocessable_entity
     end
    end
 
@@ -27,13 +27,13 @@ class Api::V1::UsersController < ApplicationController
     begin
       user = User.find(params[:id])
       if user.blank?
-        render json: {message: 'redord not found'}, status: :not_found
+        render json: { message: "redord not found" }, status: :not_found
       end
       user.update!(update_params)
       # render json: {message: 'Update Successfully'}, status: :no_content
       head :no_content
     rescue StandardError => e
-      render json: {message: e.message}, status: :unprocessable_entity
+      render json: { message: e.message }, status: :unprocessable_entity
     end
    end
 
@@ -41,12 +41,12 @@ class Api::V1::UsersController < ApplicationController
       begin
         user = User.find(params[:id])
         if user.blank?
-          render json: {message: 'record not found'}, status: :not_found
+          render json: { message: "record not found" }, status: :not_found
         end
         user.update!(update_status_params)
-        render json: {message: 'Status Update Successfully'}, status: :no_content
+        render json: { message: "Status Update Successfully" }, status: :no_content
       rescue StandardError => e
-        render json: {message: e.message}, status: :unprocessable_entity
+        render json: { message: e.message }, status: :unprocessable_entity
       end
    end
 
@@ -55,10 +55,10 @@ class Api::V1::UsersController < ApplicationController
       user = User.find(params[:id])
       render json: user, status: :ok
     rescue StandardError => e
-      render json: {message: e.message}, status: :unprocessable_entity
+      render json: { message: e.message }, status: :unprocessable_entity
     end
    end
-   
+
    def show
     begin
       render json: User.find(params[:id]), status: :ok
@@ -68,13 +68,13 @@ class Api::V1::UsersController < ApplicationController
    end
 
    def delete
-     begin 
+     begin
      rescue StandardError => e
-       render json: {message: e.message}, status: :no_content
-     end 
+       render json: { message: e.message }, status: :no_content
+     end
    end
 
-   private 
+   private
    def set_user_params(params)
      params.permit(:name, :email, :mobile_number, :status, :password_confirmation, :password, :image, :video)
    end

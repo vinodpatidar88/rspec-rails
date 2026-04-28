@@ -5,7 +5,7 @@ module Users
       end
 
       def call
-        return create
+        create
       end
 
       private

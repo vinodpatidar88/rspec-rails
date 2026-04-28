@@ -41,18 +41,20 @@ gem "thruster", require: false
 
 # Use Active Storage variants [https://guides.rubyonrails.org/active_storage_overview.html#transforming-images]
 gem "image_processing", "~> 1.2"
-gem 'rack-cors'
+gem "rack-cors"
 
-gem 'bcrypt'
+gem "bcrypt"
+
+gem "jwt"
 
 group :development, :test do
-  gem 'rspec-rails' #bridge btween rails and rspec
-  gem 'factory_bot_rails' #for create test record in database
-  gem 'faker' #get Dumy Data For Users
-  gem 'shoulda-matchers' #validation testing Simplify
-  gem 'pry' # Debugging Tools
-  gem 'simplecov'
-  gem 'simplecov-console'
+  gem "rspec-rails" # bridge btween rails and rspec
+  gem "factory_bot_rails" # for create test record in database
+  gem "faker" # get Dumy Data For Users
+  gem "shoulda-matchers" # validation testing Simplify
+  gem "pry" # Debugging Tools
+  gem "simplecov"
+  gem "simplecov-console"
   # See https://guides.rubyonrails.org/debugging_rail s_applications.html#debugging-with-the-debug-gem
   gem "debug", platforms: %i[ mri windows ], require: "debug/prelude"
 
