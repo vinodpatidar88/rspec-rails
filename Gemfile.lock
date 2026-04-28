@@ -255,6 +255,8 @@ GEM
     raabro (1.4.0)
     racc (1.8.1)
     rack (3.2.5)
+    rack-attack (6.8.0)
+      rack (>= 1.0, < 4)
     rack-cors (3.0.0)
       logger
       rack (>= 3.0.14)
@@ -301,6 +303,8 @@ GEM
       erb
       psych (>= 4.0.0)
       tsort
+    redis (5.4.1)
+      redis-client (>= 0.22.0)
     redis-client (0.28.0)
       connection_pool
     regexp_parser (2.11.3)
@@ -482,8 +486,10 @@ DEPENDENCIES
   propshaft
   pry
   puma (>= 5.0)
+  rack-attack
   rack-cors
   rails (~> 8.1.2)
+  redis
   rspec-rails
   rubocop-rails-omakase
   selenium-webdriver

@@ -1,30 +1,27 @@
 class Api::V1::UsersController < ApplicationController
+   skip_before_action :authenticate_user!, only: [ :create ]
+
    def index
-    begin
      users = User.active
      users_with_images = users.map do |user|
       user.as_json.merge(
         image_url: user.image.attached? ? url_for(user.image) : nil,
         video_url: user.video.attached? ? url_for(user.video) : nil
       )
-    end
+     end
      render json: users_with_images, status: :ok
-    rescue StandardError => error
+   rescue StandardError => error
        render json: { message: error.message }, status: :internal_server_error
-    end
    end
 
    def create
-    begin
       data = ::Users::CreateSerialiser.new(set_user_params(params)).call
       render json: data, status: :created
     rescue StandardError => e
       render json: { message: e.message }, status: :unprocessable_entity
-    end
    end
 
    def update
-    begin
       user = User.find(params[:id])
       if user.blank?
         render json: { message: "redord not found" }, status: :not_found
@@ -34,11 +31,9 @@ class Api::V1::UsersController < ApplicationController
       head :no_content
     rescue StandardError => e
       render json: { message: e.message }, status: :unprocessable_entity
-    end
    end
 
    def update_status
-      begin
         user = User.find(params[:id])
         if user.blank?
           render json: { message: "record not found" }, status: :not_found
@@ -47,31 +42,24 @@ class Api::V1::UsersController < ApplicationController
         render json: { message: "Status Update Successfully" }, status: :no_content
       rescue StandardError => e
         render json: { message: e.message }, status: :unprocessable_entity
-      end
    end
 
    def edit
-    begin
       user = User.find(params[:id])
       render json: user, status: :ok
     rescue StandardError => e
       render json: { message: e.message }, status: :unprocessable_entity
-    end
    end
 
    def show
-    begin
       render json: User.find(params[:id]), status: :ok
     rescue StandardError => e
        render json: { message: e.message }, status: :not_found
-    end
    end
 
    def delete
-     begin
      rescue StandardError => e
        render json: { message: e.message }, status: :no_content
-     end
    end
 
    private

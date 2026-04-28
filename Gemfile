@@ -47,6 +47,10 @@ gem "bcrypt"
 
 gem "jwt"
 
+gem "rack-attack"
+
+gem "redis"
+
 group :development, :test do
   gem "rspec-rails" # bridge btween rails and rspec
   gem "factory_bot_rails" # for create test record in database

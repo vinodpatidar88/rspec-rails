@@ -15,6 +15,7 @@ Rails.application.routes.draw do
   # root "posts#index"
   namespace :api do
     namespace :v1 do
+      post 'user/login', to: 'authentications#login'
       get  'users', to: 'users#index'
       post 'users', to: 'users#create'
       get 'users/:id', to: 'users#show'
